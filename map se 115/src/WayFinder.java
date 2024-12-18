@@ -33,6 +33,8 @@ public class WayFinder {
             }
             return "Fastest Way: Path reconstruction";
         }
+     public static int getTotalTime() {
+        return 0;
     }
 
 
