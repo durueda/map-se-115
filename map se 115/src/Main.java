@@ -1,5 +1,4 @@
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.Scanner;
 
 public class Main {
@@ -27,7 +26,12 @@ public class Main {
                 int startIndex = map.findCityIndex(startName);
                 int endIndex = map.findCityIndex(endName);
 
-
+                 if (startIndex != -1 && endIndex != -1) {
+                    map.getCities()[startIndex].addConnection(endIndex, time);
+                } else {
+                    System.out.println("Invalid city route: " + startName + " or " + endName);
+                }
+            }
         }
     }
 }
