@@ -1,14 +1,18 @@
 public class WayFinder {
   public class WayFinder {
         public static String findFastestWay(CountryMap map, City start, City end) {
+            int cityCount = map.getCityCount();
             int[] distances = new int[map.getCityCount()];
             int[] previousCity = new int[map.getCityCount()];
             boolean[] visited = new boolean[map.getCityCount()];
 
             for (int i = 0; i < distances.length; i++) {
                 distances[i] = Integer.MAX_VALUE;
+               previousCity[i] = -1;
             }
             int startIndex = map.findCityIndex(start.getName());
+            int endIndex = map.findCityIndex(end.getName());
+          
             if (startIndex == -1) return "No route found";
             distances[startIndex] = 0;
 
