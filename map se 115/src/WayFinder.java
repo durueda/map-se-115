@@ -43,9 +43,15 @@ public class WayFinder {
             if (distances[endIndex] == Integer.MAX_VALUE) {
             return "No route exists between " + start.getName() + " and " + end.getName();
         }
+           StringBuilder path = new StringBuilder();
+        int current = endIndex;
+        while (current != -1) {
+            path.insert(0, map.getCities()[current].getName() + " -> ");
+            current = previousCity[current];
+        }
+        path.setLength(path.length() - 4);
+
+        return "Fastest Way: " + path + "\nTotal Time: " + distances[endIndex] + " min";
+    }
            
     }
-
-
-
-}
