@@ -45,4 +45,13 @@ public class Main {
 
         }
     }
+    private static String getInputFileName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please enter an input file name: ");
+        String filename = scanner.nextLine();
+        scanner.close();
+        return filename;
 }
+    
+}
+
