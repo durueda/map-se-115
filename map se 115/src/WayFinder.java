@@ -12,11 +12,13 @@ public class WayFinder {
             }
             int startIndex = map.findCityIndex(start.getName());
             int endIndex = map.findCityIndex(end.getName());
-          
-            if (startIndex == -1) return "No route found";
-            distances[startIndex] = 0;
+           
+            if (startIndex == -1 || endIndex == -1) {
+            return "Error: Start or end city not found in the map.";
+            }
+              distances[startIndex] = 0;
 
-            for (int count = 0; count < map.getCityCount(); count++) {
+            for (int count = 0; count < cityCount(); count++) {
                 int u = -1;
                 int minDistance = Integer.MAX_VALUE;
                 for (int v = 0; v < map.getCityCount(); v++) {
@@ -32,8 +34,11 @@ public class WayFinder {
                 for (int i = 0; i < currentCity.getConnectionCount(); i++) {
                     int v = currentCity.getConnectedCityIndices()[i];
                     int time = currentCity.getRouteTimes()[i];
+                  if (!visited[v] && distances[u] + time < distances[v]) {
+                    distances[v] = distances[u] + time;
                     previousCity[v] = u;
                 }
+            }
             }
             return "Fastest Way: Path reconstruction";
         }
