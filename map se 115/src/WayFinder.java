@@ -40,10 +40,10 @@ public class WayFinder {
                 }
             }
             }
-            return "Fastest Way: Path reconstruction";
+            if (distances[endIndex] == Integer.MAX_VALUE) {
+            return "No route exists between " + start.getName() + " and " + end.getName();
         }
-     public static int getTotalTime() {
-        return 0;
+           
     }
 
 
