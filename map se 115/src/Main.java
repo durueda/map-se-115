@@ -32,6 +32,17 @@ public class Main {
                     System.out.println("Invalid city route: " + startName + " or " + endName);
                 }
             }
+            String[] endPoints = fileScanner.nextLine().split(" ");
+            City startCity = map.getCities()[map.findCityIndex(endPoints[0])];
+            City endCity = map.getCities()[map.findCityIndex(endPoints[1])];
+
+            String fastestRoute = WayFinder.findFastestWay(map, startCity, endCity);
+            System.out.println(fastestRoute);
+
+             } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
+
         }
     }
 }
