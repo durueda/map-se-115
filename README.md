@@ -1,6 +1,6 @@
- # Country Map & Way Finder (Java)
+ # MAPS PROJECT (Java - SHORTEST PATH)
 A Java-based map navigation system that models cities as nodes and connections as paths, allowing users to explore routes between locations.
-The project demonstrates graph data structures, path-finding logic, and object-oriented design principles.
+This project is a Java-based graph navigation system that models cities as nodes and roads as weighted edges. Unlike simple traversal-based systems, this implementation focuses on **Dijkstra’s shortest path algorithm** to compute the minimum-distance route between two cities. The system efficiently determines the optimal path based on edge weights, demonstrating practical application of graph theory and algorithm optimization in Java.
 
 ## Project Overview
  ### This project simulates a country map where:
@@ -12,7 +12,7 @@ The project demonstrates graph data structures, path-finding logic, and object-o
 
 -Users can interact through a main driver class.
 ### It focuses on applying core Computer Science concepts such as:
--Graph data structures
+-Dijkstra’s shortest path algorithm 
 
 -Traversal algorithms
 
@@ -23,31 +23,58 @@ The project demonstrates graph data structures, path-finding logic, and object-o
 ## Project Structure
 
 ├── City.java
+
 ├── CountryMap.java
+
 ├── WayFinder.java
+
 ├── Main.java
 
 #### 🔹 City.java
-Represents a city node in the graph.
-Stores city name
-Maintains connected cities
-Handles city-level behaviors
+Represents a city entity in the system.
+
+Stores the city name and related data
+
+Maintains connections using array-based structures
+
+Acts as the fundamental data model for the map
+
+This class focuses purely on data encapsulation and object representation.
 #### 🔹 CountryMap.java
-Represents the overall map structure.
-Manages cities
-Stores connections
-Builds and maintains the graph
+Responsible for managing the overall map structure.
+
+Stores cities using a HashMap for efficient lookup
+
+Maintains connections between cities
+
+Uses array-based collections to manage adjacency relationships
+
+Provides methods to add cities and create connections
+
+Instead of using complex graph libraries, the structure is built manually using Map and Array data structures to ensure clarity and control.
 #### 🔹 WayFinder.java
-Implements the path-finding logic.
-Finds routes between cities
-Applies traversal algorithms (e.g., BFS/DFS depending on implementation)
-Returns the computed path
+Implements the shortest-path logic using Dijkstra’s algorithm.
+
+Uses HashMap to track distances between cities
+
+Stores visited or processed cities
+
+Maintains predecessor mapping to reconstruct the optimal route
+
+Iteratively updates minimum distances based on edge weights
+
+The algorithm operates directly on Map and Array structures rather than abstract graph frameworks, emphasizing fundamental data structure usage.
 #### 🔹 Main.java
-Entry point of the application.
-Creates map data
-Connects cities
-Executes route-finding logic
-Displays results
+Application entry point.
+
+Initializes city objects
+
+Builds the map structure
+
+Executes shortest-path operations
+
+Displays computed routes
+
 ## How to Run
 1️⃣ Requirements
 Java 17+ (or compatible version)
@@ -59,10 +86,11 @@ java Main
 Or simply run Main.java from your IDE.
 
 ## Core Concepts Used
-Graph Representation (Adjacency List structure)
-Breadth-First Search (BFS) or Depth-First Search (DFS)
-Encapsulation
-Modular Class Design
+Dijkstra’s shortest path algorithm
+HashMap for distance tracking and node management
+Array / ArrayList structures for adjacency storage
+Path reconstruction using predecessor mapping
+Object-Oriented Programming (OOP) principles
 Clean Responsibility Separation
 
 ## Example Usage
@@ -93,7 +121,7 @@ CityA -> CityB -> CityC -> CityD
 
 ## Learning Purpose
 #### This project was built to strengthen understanding of:
--Data Structures (Graphs)
+-Data Structures 
 
 -Algorithm implementation
 
